@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AmbientCoinBackground from "./components/AmbientCoinBackground";
@@ -65,6 +66,7 @@ export default function App() {
           </Routes>
         </BrowserRouter>
       </div>
+      <Analytics />
     </AuthProvider>
   );
 }
