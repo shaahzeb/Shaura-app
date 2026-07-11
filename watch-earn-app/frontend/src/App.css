@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f1115;
+  color: #f2f2f2;
+}
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.auth-form {
+  background: #181b22;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.auth-form input,
+.withdraw-form input,
+.withdraw-form select {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #0f1115;
+  color: #fff;
+}
+
+.auth-form button,
+.withdraw-form button,
+button {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #111;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+.info {
+  color: #d4af37;
+  margin-top: 1rem;
+}
+
+.dashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, #1b2a1e, #14301c);
+  border: 1px solid #2c5c34;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.earn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.earn-card {
+  background: #181b22;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.15s ease;
+}
+
+.earn-card:hover {
+  transform: translateY(-3px);
+  border: 1px solid #d4af37;
+}
+
+.earn-card span {
+  font-size: 2rem;
+}
+
+.referral-box {
+  background: #181b22;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.referral-box input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #0f1115;
+  color: #d4af37;
+}
+
+.page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.game-area {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.target-btn {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 50%;
+}
+
+.withdraw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+}
+
+.history-list li {
+  background: #181b22;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.offerwall-frame {
+  border-radius: 12px;
+  margin-top: 1rem;
+}

@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/watchearn
+      - JWT_SECRET=dev_only_change_me
+      - FRONTEND_URL=http://localhost:3000
+      - COINS_PER_AD_VIEW=10
+      - COINS_PER_OFFER_BASE=50
+      - COIN_TO_CASH_RATE=0.001
+      - MIN_WITHDRAWAL_COINS=5000
+      - DAILY_AD_VIEW_CAP=20
+      - DAILY_GAME_EARN_CAP=200
+      - AD_NETWORK_POSTBACK_SECRET=dev_secret
+      - OFFERWALL_POSTBACK_SECRET=dev_secret
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
