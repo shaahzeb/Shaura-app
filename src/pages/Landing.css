@@ -1,0 +1,452 @@
+/* ---------------------------------------------------------------
+   Design tokens (scoped to .landing-page so the rest of the app,
+   which already uses its own dark+gold dashboard styling, is
+   untouched)
+   --------------------------------------------------------------- */
+.landing-page {
+  --bg: #0b0d10;
+  --bg-raised: #14171c;
+  --paper: #f5f1e6;
+  --ink: #1b1b1b;
+  --emerald: #1f5d3a;
+  --emerald-bright: #2f8a56;
+  --gold: #d4af37;
+  --text: #f2f0ea;
+  --muted: #9a9ca3;
+
+  background: transparent;
+  color: var(--text);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+.landing-page .display {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+.landing-page .mono {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+}
+
+/* ---------------------------------------------------------------
+   Nav
+   --------------------------------------------------------------- */
+.l-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.l-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.l-logo .coin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--gold), #8a6d1c);
+  display: inline-block;
+}
+
+.l-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.l-nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.l-nav-links a:hover {
+  color: var(--text);
+}
+
+.lang-toggle {
+  background: transparent;
+  border: 1px solid #33363d;
+  color: var(--text);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lang-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.l-nav-cta {
+  background: var(--gold);
+  color: #14140f;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------- */
+.l-hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.l-eyebrow {
+  color: var(--emerald-bright);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.l-hero h1 {
+  font-size: 3.2rem;
+  line-height: 1.05;
+  margin: 0 0 1.25rem;
+  font-weight: 600;
+}
+
+.l-hero h1 span {
+  color: var(--gold);
+}
+
+.l-hero p.sub {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 46ch;
+  margin-bottom: 2rem;
+}
+
+.l-hero-ctas {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #14140f;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.btn-ghost {
+  color: var(--text);
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  border: 1px solid #33363d;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* ---------------------------------------------------------------
+   Signature element: the printing receipt
+   --------------------------------------------------------------- */
+.receipt-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.receipt {
+  background: var(--paper);
+  color: var(--ink);
+  width: 280px;
+  padding: 1.5rem 1.4rem 2rem;
+  border-radius: 2px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.receipt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 20px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--paper),
+    var(--paper) 8px,
+    var(--bg) 8px,
+    var(--bg) 10px
+  );
+}
+
+.receipt-head {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.receipt-sub {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #6b6b62;
+  margin-bottom: 0.9rem;
+}
+
+.receipt-divider {
+  border: none;
+  border-top: 1px dashed #b8b3a0;
+  margin: 0.6rem 0;
+}
+
+.receipt-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  padding: 0.28rem 0;
+  opacity: 0;
+  animation: printLine 0.4s ease forwards;
+}
+
+.receipt-line .amt {
+  font-weight: 600;
+}
+
+.receipt-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.receipt-stamp {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  border: 2px solid var(--emerald);
+  color: var(--emerald);
+  padding: 0.3rem;
+  transform: rotate(-3deg);
+  border-radius: 4px;
+}
+
+@keyframes printLine {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------------
+   Marquee strip
+   --------------------------------------------------------------- */
+.l-strip {
+  border-top: 1px solid #1e2127;
+  border-bottom: 1px solid #1e2127;
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+.l-strip-track {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: scrollStrip 22s linear infinite;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@keyframes scrollStrip {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------------------------------------------------------------
+   How it works
+   --------------------------------------------------------------- */
+.l-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+
+.l-section h2 {
+  font-size: 2.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.l-section-sub {
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  max-width: 50ch;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: #1e2127;
+  border: 1px solid #1e2127;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.step-card {
+  background: var(--bg-raised);
+  padding: 1.75rem 1.5rem;
+}
+
+.step-num {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--emerald-bright);
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.step-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.step-card p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------
+   Stats
+   --------------------------------------------------------------- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  border-top: 1px dashed #33363d;
+  border-bottom: 1px dashed #33363d;
+  padding: 2rem 0;
+}
+
+.stat {
+  text-align: center;
+  border-right: 1px dashed #33363d;
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.stat .num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.9rem;
+  color: var(--gold);
+}
+
+.stat .label {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 0.3rem;
+}
+
+.stats-note {
+  color: #55575e;
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* ---------------------------------------------------------------
+   FAQ
+   --------------------------------------------------------------- */
+.faq-item {
+  border-bottom: 1px dashed #33363d;
+  padding: 1.1rem 0;
+}
+
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 600;
+  align-items: center;
+}
+
+.faq-a {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 0.6rem;
+  line-height: 1.6;
+  max-width: 65ch;
+}
+
+/* ---------------------------------------------------------------
+   Final CTA + footer
+   --------------------------------------------------------------- */
+.l-final-cta {
+  text-align: center;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.l-final-cta h2 {
+  font-size: 2.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.l-footer {
+  border-top: 1px solid #1e2127;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: #55575e;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 860px) {
+  .l-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .l-hero-ctas {
+    justify-content: center;
+  }
+  .l-hero p.sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .receipt-wrap {
+    margin-top: 1rem;
+  }
+  .l-hero h1 {
+    font-size: 2.3rem;
+  }
+}
